@@ -33,7 +33,8 @@ class UserAPI extends DataSource {
 
   async bookTrips({ launchIds }) {
     const userId = this.context.user.id;
-    if (!userId) return;
+    
+    if (!userId) return 'User does not exists';
 
     let results = [];
 
@@ -49,6 +50,7 @@ class UserAPI extends DataSource {
 
   async bookTrip({ launchId }) {
     const userId = this.context.user.id;
+    
     const res = await this.store.trips.findOrCreate({
       where: { userId, launchId },
     });
