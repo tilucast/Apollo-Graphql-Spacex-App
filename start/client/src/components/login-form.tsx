@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { ChangeEvent, Component, FormEvent, useState } from 'react';
 import styled, { css } from 'react-emotion';
 import { size } from 'polished';
 
@@ -10,50 +10,50 @@ import { ReactComponent as Rocket } from '../assets/rocket.svg';
 import { colors, unit } from '../styles';
 
 interface LoginFormProps {
-  login: (a: { variables: any }) => void;
+  login: (a: { variables: {email: string} }) => void;
 }
 
 interface LoginFormState {
   email: string;
 }
 
-export default class LoginForm extends Component<LoginFormProps, LoginFormState> {
-  state = { email: '' };
+const LoginForm: React.FC<LoginFormProps> = ({login}) => {
+  const [email, setEmail] = useState("")
 
-  onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const email = (event.target as HTMLInputElement).value;
-    this.setState(s => ({ email }));
-  };
+  const onChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const formEmail = (event.target as HTMLInputElement).value
+    setEmail(formEmail)
+  }
 
-  onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    this.props.login({ variables: { email: this.state.email } });
-  };
+  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    login({variables: {email}})
+  }
 
-  render() {
-    return (
-      <Container>
+  return (
+    <Container>
         <Header>
           <StyledCurve />
           <StyledLogo />
         </Header>
         <StyledRocket />
         <Heading>Space Explorer</Heading>
-        <StyledForm onSubmit={(e) => this.onSubmit(e)}>
+        <StyledForm onSubmit={(e) => onSubmit(e)}>
           <StyledInput
             required
             type="email"
             name="email"
             placeholder="Email"
             data-testid="login-input"
-            onChange={(e) => this.onChange(e)}
+            onChange={(e) => onChange(e)}
           />
           <Button type="submit">Log in</Button>
         </StyledForm>
       </Container>
-    );
-  }
+  )
 }
+
+export default LoginForm
 
 /**
  * STYLED COMPONENTS USED IN THIS FILE ARE BELOW HERE
