@@ -1,3 +1,12 @@
+# SpaceX App
+<img src="images/Screenshot_2021-01-21 Launches.png" align="center"></img>
+<img src="images/Screenshot_2021-01-21 Launches(1).png" align="center"></img>
+<img src="images/Screenshot_2021-01-21 Launches(2).png" align="center"></img>
+
+# My modifications
+For now, i did rewrite the login-form class component to a function component instead, to maintain cohesion throughout the app, which only has functional components.
+I will mess with it a bit more, make it fully responsible, and some other changes.
+
 # Apollo tutorial
 
 This is the fullstack app for the [Apollo tutorial](http://apollographql.com/docs/tutorial/introduction.html). 🚀
