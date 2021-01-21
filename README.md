@@ -1,7 +1,7 @@
 # SpaceX App
-<img src="images/Screenshot_2021-01-21 Launches.png" align="center"></img>
-<img src="images/Screenshot_2021-01-21 Launches(1).png" align="center"></img>
-<img src="images/Screenshot_2021-01-21 Launches(2).png" align="center"></img>
+<img src="images/Screenshot_2021-01-21 Launches.png"></img>
+<img src="images/Screenshot_2021-01-21 Launches(1).png"></img>
+<img src="images/Screenshot_2021-01-21 Launches(2).png"></img>
 
 # My modifications
 For now, i did rewrite the login-form class component to a function component instead, to maintain cohesion throughout the app, which only has functional components.
